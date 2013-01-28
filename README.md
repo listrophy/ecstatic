@@ -8,9 +8,13 @@ Ecstatic does **not** provide an automatic mechanism for blogging. If you want t
 
 Ecstatic is not meant to create ridiculously optimized sites. It will instead make fairly optimized sites. Perhaps, in the future, there can be a plugin ecosystem that takes Ecstatic output and performs further optimization (e.g., pre-gzip, js closure compilation, etc.).
 
+## Requirements
+
+You will need Ruby 1.9.3 or greater (it may work with earlier versions of 1.9.x, but they are not tested). You will also need a way to compile CoffeeScript. Simply having [node.js](http://nodejs.org/) on your machine should suffice.
+
 ## Creating a static site for GitHub Pages
 
-Starting from scratch, let's assume you have ruby installed:
+Starting from scratch:
 
     $ mkdir my_site
     $ cd my_site
@@ -18,7 +22,7 @@ Starting from scratch, let's assume you have ruby installed:
     $ gem install bundler
     $ (echo 'source :rubygems'; echo "gem 'ecstatic'") > Gemfile
     $ bundle
-    $ ecstatic init
+    $ rake init
 
 ## Getting started
 
@@ -46,7 +50,7 @@ After installation and initialization, you should have the following directory t
     │   └── js
     └── vendor
 
-When writing your website, you will focus almost exclusively on the `site` directory. While you're working on your site, you'll want to run `ecstatic server` and view its contents at [localhost:4567](http://localhost:4567). The server functionality will compile your content on demand to the root directory of your project (sadly, necessary for GitHub Pages).
+When writing your website, you will focus almost exclusively on the `site` directory. While you're working on your site, you'll want to run `rake server` and view its contents at [localhost:4567](http://localhost:4567). The server functionality will compile your content on demand to the root directory of your project (sadly, necessary for GitHub Pages).
 
 ## Deploying to GitHub Pages
 
@@ -73,10 +77,10 @@ These task names are a bit long. That's ok, because the intent is that you add o
     # Pick one of the following to define it:
 
     # Use this if you deploy the site by pushing the current branch
-    task :deploy => 'deploy:current_branch'
+    task deploy: 'deploy:current_branch'
 
     # OR use this if you deploy the site by merging it to `gh-pages` first
-    task :deploy => 'deploy:merge_to_gh_pages_first'
+    task deploy: 'deploy:merge_to_gh_pages_first'
 
 Then, to deploy, you simply issue:
 

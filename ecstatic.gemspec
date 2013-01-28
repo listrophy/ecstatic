@@ -8,12 +8,12 @@ Gem::Specification.new do |gem|
   gem.version       = Ecstatic::VERSION
   gem.authors       = ["Bradley Grzesiak"]
   gem.email         = ["brad@bendyworks.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = %q{A static site generator focused on simplicity}
+  gem.summary       = %q{Ecstatic is a static site generator focused on simplicity. It uses just enough of the right tools, leaving as much power in your hands while still providing plenty of value. Ecstatic is opinionated in favor of HAML, SASS, and CoffeeScript.}
+  gem.homepage      = "http://github.com/listrophy/ecstatic"
 
   gem.files         = `git ls-files`.split($/)
-  gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
-  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
+  gem.executables   = []
+  gem.test_files    = gem.files.grep(%r{^spec/})
   gem.require_paths = ["lib"]
 end
