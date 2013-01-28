@@ -16,4 +16,14 @@ Gem::Specification.new do |gem|
   gem.executables   = []
   gem.test_files    = gem.files.grep(%r{^spec/})
   gem.require_paths = ["lib"]
+
+  gem.add_dependency 'coffee-script'
+  gem.add_dependency 'haml'
+  gem.add_dependency 'rake'
+  gem.add_dependency 'sass'
+  gem.add_dependency 'sinatra'
+  gem.add_dependency 'slop'
+  gem.add_dependency 'watchr'
+
+  gem.add_development_dependency 'rspec'
 end
