@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+require "rubygems" # ruby1.9 doesn't "require" it though
+require "thor"
+
+class EcstaticCommand < Thor
+  include Thor::Actions
+
+  def self.source_root
+    File.dirname(__FILE__)
+  end
+
+  desc "init", "Create a new ecstatic project"
+  def init
+    directory 'site'
+    
+  end
+end
+
+EcstaticCommand.start

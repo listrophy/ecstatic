@@ -13,8 +13,8 @@ Gem::Specification.new do |gem|
   gem.homepage      = "http://github.com/listrophy/ecstatic"
 
   gem.files         = `git ls-files`.split($/)
-  gem.executables   = []
-  gem.test_files    = gem.files.grep(%r{^spec/})
+  gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
+  gem.test_files    = gem.files.grep(%r{^(spec|features)/})
   gem.require_paths = ["lib"]
 
   gem.add_dependency 'coffee-script'
@@ -22,6 +22,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'rake'
   gem.add_dependency 'sass'
   gem.add_dependency 'sinatra'
+  gem.add_dependency 'thor'
   gem.add_dependency 'watchr'
 
   gem.add_development_dependency 'rspec'
