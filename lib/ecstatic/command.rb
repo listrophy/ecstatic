@@ -1,6 +1,7 @@
 module Ecstatic
   class Command < Thor
     include Thor::Actions
+    include Ecstatic::Actions
 
     def self.source_root
       File.expand_path("../templates", __FILE__)
@@ -8,6 +9,7 @@ module Ecstatic
 
     desc "init", "Create a new ecstatic project"
     def init
+      git :init
       directory 'site'
       copy_file '.gitignore'
     end
