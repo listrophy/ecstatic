@@ -9,7 +9,12 @@ module Ecstatic
     desc "init", "Create a new ecstatic project"
     def init
       directory 'site'
-      
+      copy_file '.gitignore'
+    end
+
+    desc "server", "Run your site locally, recompiling files as they change."
+    def server
+      Ecstatic::Server.run!
     end
   end
 end
