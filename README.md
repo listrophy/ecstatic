@@ -22,7 +22,11 @@ Starting from scratch:
     $ gem install bundler
     $ (echo 'source :rubygems'; echo "gem 'ecstatic'") > Gemfile
     $ bundle
-    $ rake init
+    $ ecstatic init
+
+If your site is a Github Pages page rather than a user or organization home page, then your last step is different:
+
+    $ ecstatic init --ghpages
 
 ## Getting started
 
@@ -50,7 +54,7 @@ After installation and initialization, you should have the following directory t
     │   └── js
     └── vendor
 
-When writing your website, you will focus almost exclusively on the `site` directory. While you're working on your site, you'll want to run `rake server` and view its contents at [localhost:4567](http://localhost:4567). The server functionality will compile your content on demand to the root directory of your project (sadly, necessary for GitHub Pages).
+When writing your website, you will focus almost exclusively on the `site` directory. While you're working on your site, you'll want to run `ecstatic server` and view its contents at [localhost:4567](http://localhost:4567). The server functionality will compile your content on demand to the root directory of your project (sadly, necessary for GitHub Pages).
 
 ## Deploying to GitHub Pages
 
