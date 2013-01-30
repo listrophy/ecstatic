@@ -54,7 +54,7 @@ After installation and initialization, you should have the following directory t
     │   └── js
     └── vendor
 
-When writing your website, you will focus almost exclusively on the `site` directory. While you're working on your site, you'll want to run `ecstatic server` and view its contents at [localhost:4567](http://localhost:4567). The server functionality will compile your content on demand to the root directory of your project (sadly, necessary for GitHub Pages).
+When writing your website, you will focus almost exclusively on the `site` directory. While you're working on your site, you'll want to run `ecstatic server` and view its contents at [localhost:4567](http://localhost:4567).
 
 ## Deploying to GitHub Pages
 
