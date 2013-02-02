@@ -3,7 +3,7 @@ require 'sinatra'
 module Ecstatic
   class Server < Sinatra::Base
     configure do
-      set :public_folder, 'gh-pages/'
+      set :public_folder, 'gh-pages'
     end
 
     get '/' do
