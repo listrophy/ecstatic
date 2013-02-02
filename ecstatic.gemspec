@@ -6,7 +6,7 @@ require 'ecstatic/version'
 Gem::Specification.new do |gem|
   gem.name          = "ecstatic"
   gem.version       = Ecstatic::VERSION
-  gem.authors       = ["Bradley Grzesiak"]
+  gem.authors       = ["Bradley Grzesiak", "Matt Gauger"]
   gem.email         = ["brad@bendyworks.com"]
   gem.description   = %q{A static site generator focused on simplicity}
   gem.summary       = %q{Ecstatic is a static site generator focused on simplicity. It uses just enough of the right tools, leaving as much power in your hands while still providing plenty of value. Ecstatic is opinionated in favor of HAML, SASS, and CoffeeScript.}
