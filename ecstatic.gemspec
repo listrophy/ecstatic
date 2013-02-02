@@ -23,6 +23,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'rdiscount'
   gem.add_dependency 'sass'
   gem.add_dependency 'sinatra'
+  gem.add_dependency 'thin'
   gem.add_dependency 'thor'
   gem.add_dependency 'watchr'
 
