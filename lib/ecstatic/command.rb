@@ -31,6 +31,15 @@ module Ecstatic
       Ecstatic::Server.run!
     end
 
+    desc 'deploy', 'Deploy a site to Github Pages.'
+    def deploy
+      Dir.chdir('gh-pages') do
+        ensure_we_are_on_branch
+        commit_changes_if_necessary &&
+          push_changes
+      end
+    end
+
     private
     def init_git_if_not_already(path = '.')
       unless Dir.exists?(File.join(path, '.git'))
@@ -38,6 +47,28 @@ module Ecstatic
       else
         puts "Skipping git init because #{path} already has a .git/"
       end
+    end
+
+    def ensure_we_are_on_branch
+      current_branch = `git rev-parse --abbrev-ref HEAD`
+
+      unless current_branch.chomp == 'gh-pages'
+        git :checkout => 'gh-pages'
+      end
+    end
+
+    def commit_changes_if_necessary
+      unless `git status -s`.chomp.empty?
+        git :add => '.'
+        git :commit => %Q(-m "Deploy at #{DateTime.now.rfc2822}")
+      else
+        puts "Nothing to deploy."
+        return false
+      end
+    end
+
+    def push_changes
+      git :push => '-u origin gh-pages'
     end
   end
 end
