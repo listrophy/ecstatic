@@ -25,6 +25,9 @@ module Ecstatic
 
     desc 'server', 'Run your site locally, recompiling files as they change.'
     def server
+      Thread.new do
+        Ecstatic::Watcher.watch!
+      end
       Ecstatic::Server.run!
     end
 
