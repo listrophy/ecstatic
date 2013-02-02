@@ -20,10 +20,12 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'coffee-script'
   gem.add_dependency 'haml'
   gem.add_dependency 'rake'
+  gem.add_dependency 'rdiscount'
   gem.add_dependency 'sass'
   gem.add_dependency 'sinatra'
   gem.add_dependency 'thor'
   gem.add_dependency 'watchr'
 
   gem.add_development_dependency 'rspec'
+  gem.add_development_dependency 'pry'
 end
