@@ -59,7 +59,7 @@ module Ecstatic
 
     def commit_changes_if_necessary
       unless `git status -s`.chomp.empty?
-        git :add => '.'
+        git :add => '-A .'
         git :commit => %Q(-m "Deploy at #{DateTime.now.rfc2822}")
       else
         puts "Nothing to deploy."
