@@ -32,63 +32,29 @@ If your site is a Github Pages page rather than a user or organization home page
 
 After installation and initialization, you should have the following directory tree:
 
-    .
-    ├── .gitignore
-    ├── .rvmrc
-    ├── Gemfile
-    ├── Gemfile.lock
-    ├── README.md
-    ├── Rakefile
-    ├── site
-    │   ├── assets
-    │   │   ├── fonts
-    │   │   └── images
-    |   ├── pages
-    |   │   └── index.haml
-    │   ├── scripts
-    │   |   └── site.coffee
-    │   └── stylesheets
-    │       ├── fonts.scss
-    |       └── site.scss
-    ├── tmp
-    │   └── js
-    └── vendor
+.
+├── Gemfile
+├── Gemfile.lock
+├── README.md
+├── config.rb
+├── gh-pages
+└── site
+    ├── assets
+    │   ├── images
+    │   ├── javascripts
+    │   └── stylesheets
+    └── pages
+        └── index.haml
 
 When writing your website, you will focus almost exclusively on the `site` directory. While you're working on your site, you'll want to run `ecstatic server` and view its contents at [localhost:4567](http://localhost:4567).
 
 ## Deploying to GitHub Pages
 
-### Preconditions
+Assuming everything worked and you set up your git remotes right, you should be able to deploy with:
 
-You must commit your code to git. Ecstatic will not do that for you. In addition, contrary to typical application development, you must commit the generated files to git. This is a limitation of GitHub pages. (If someone could provide a sample .gitattributes file to ease this process, I'd appreciate it.)
-
-There are two ways to GitHub Pages can handle sites:
-
-1. on the `gh-pages` branch for projects
-2. on the `master` branch for users/organizations
-
-There are, however, three use cases for Ecstatic on Github:
-
-1. Provide a site as a reference or supplement to a project
-2. Provide a home site for a user or organization
-3. The site *is* the project. (Perhaps a rich client-side application that can be statically generated and would otherwise be hosted on a VPS or Heroku or ...).
-
-In the first two cases, you'll want to deploy with `rake deploy:current_branch`. This will, unsurprisingly, deploy by pushing the current branch, whether `master` or `gh-pages`. In the third case, you'll want to deploy with `rake deploy:merge_to_gh_pages_first`. This will merge the current branch to the `gh-pages` branch before pushing.
-
-These task names are a bit long. That's ok, because the intent is that you add one of the following lines to your Rakefile:
-
-    # By default, the deploy rake task does not exist.
-    # Pick one of the following to define it:
-
-    # Use this if you deploy the site by pushing the current branch
-    task deploy: 'deploy:current_branch'
-
-    # OR use this if you deploy the site by merging it to `gh-pages` first
-    task deploy: 'deploy:merge_to_gh_pages_first'
-
-Then, to deploy, you simply issue:
-
-    $ rake deploy
+```
+ecstatic deploy
+```
 
 ## Contributing
 
