@@ -32,6 +32,7 @@ If your site is a Github Pages page rather than a user or organization home page
 
 After installation and initialization, you should have the following directory tree:
 
+```
 .
 ├── Gemfile
 ├── Gemfile.lock
@@ -45,6 +46,7 @@ After installation and initialization, you should have the following directory t
     │   └── stylesheets
     └── pages
         └── index.haml
+```
 
 When writing your website, you will focus almost exclusively on the `site` directory. While you're working on your site, you'll want to run `ecstatic server` and view its contents at [localhost:4567](http://localhost:4567).
 
