@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+begin
+  require 'rubygems'
+  require 'thor'
+  gem 'ecstatic'
+rescue LoadError
+end
+
+require 'ecstatic'
+
+Ecstatic::Command.start
