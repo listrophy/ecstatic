@@ -1,16 +1,16 @@
 # Ecstatic
 
-Ecstatic is a static site generator focused on simplicity. It uses just enough of the right tools, leaving as much power in your hands while still providing plenty of value. Ecstatic is opinionated in favor of [HAML](http://haml.info/), [SASS](http://sass-lang.com/), and [CoffeeScript](http://coffeescript.org/).
+Ecstatic is a static site generator focused on simplicity. It uses just enough of the right tools, leaving as much power in your hands while still providing plenty of value. Ecstatic is opinionated in favor of [HAML](http://haml.info/), [SASS](http://sass-lang.com/), and (someday) [CoffeeScript](http://coffeescript.org/).
 
-Ecstatic provides a straight-forward directory structure for your site and concatenates scripts and stylesheets. It also provides a mechanism to push either the `master` or `gh-pages` branch to GitHub.
+Ecstatic provides a straight-forward directory structure for your site<!-- and concatenates scripts and stylesheets-->. It also provides a mechanism to push either the `master` or `gh-pages` branch to GitHub.
 
 Ecstatic does **not** provide an automatic mechanism for blogging. If you want to use Ecstatic for blogging, you will have to curate your own site structure. Not ideal, but it's not a core feature. Perhaps someone will write a plugin that provides automatic blogging functionality (hint, hint).
 
-Ecstatic is not meant to create ridiculously optimized sites. It will instead make fairly optimized sites. Perhaps, in the future, there can be a plugin ecosystem that takes Ecstatic output and performs further optimization (e.g., pre-gzip, js closure compilation, etc.).
+Ecstatic is not meant to create ridiculously optimized sites. It will instead make fairly optimized sites. Perhaps, in the future, there can be a plugin ecosystem that takes Ecstatic output and performs further optimization (e.g., pre-gzip, JS Google closure tools advanced compilation, etc.)
 
 ## Requirements
 
-You will need Ruby 1.9.3 or greater (it may work with earlier versions of 1.9.x, but they are not tested). You will also need a way to compile CoffeeScript. Simply having [node.js](http://nodejs.org/) on your machine should suffice.
+You will need Ruby 2.0. It should also run fine on Ruby 1.9.3. Either RVM or rbenv should work. You will also need a way to compile CoffeeScript. Simply having [node.js](http://nodejs.org/) on your machine should suffice.
 
 ## Creating a static site for GitHub Pages
 
@@ -18,9 +18,11 @@ Starting from scratch:
 
     $ mkdir my_site
     $ cd my_site
-    $ echo 'rvm use 1.9.3@my_site --create' > .rvmrc && cd . # if you're using rvm
+    $ echo 'ruby-2.0.0' > .ruby-version
+    $ echo 'my_site' > .ruby-gemset
+    $ cd . # load the gemset when using RVM
     $ gem install bundler
-    $ (echo 'source :rubygems'; echo "gem 'ecstatic'") > Gemfile
+    $ (echo "source 'https://rubygems.org'"; echo "gem 'ecstatic'") > Gemfile
     $ bundle
     $ ecstatic init
 
@@ -49,6 +51,8 @@ After installation and initialization, you should have the following directory t
 ```
 
 When writing your website, you will focus almost exclusively on the `site` directory. While you're working on your site, you'll want to run `ecstatic server` and view its contents at [localhost:4567](http://localhost:4567).
+
+Ecstatic will automatically compile HAML files in `site/pages/` and SCSS files in `site/assets/stylesheets`. If you need need something like CoffeeScript compilation, then it should be fairly simple to add to `lib/ecstatic/watcher.rb`. Pull requests welcome!
 
 ## Deploying to GitHub Pages
 
