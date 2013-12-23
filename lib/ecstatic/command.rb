@@ -13,6 +13,7 @@ module Ecstatic
       init_git_if_not_already
       directory 'site'
       copy_file '.gitignore'
+      copy_file 'config.rb'
 
       if options.ghpages?
         empty_directory 'gh-pages'
