@@ -42,10 +42,10 @@ After installation and initialization, you should have the following directory t
 ├── config.rb
 ├── gh-pages
 └── site
-    ├── assets
-    ├── pages
-    ├── scripts
-    └── stylesheets
+    ├── assets
+    │   ├── scripts
+    │   └── stylesheets
+    └── pages
 ```
 
 When writing your website, you will focus almost exclusively on the `site` directory. While you're working on your site, you'll want to run `ecstatic server` and view its contents at [localhost:4567](http://localhost:4567).
