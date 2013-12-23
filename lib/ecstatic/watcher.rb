@@ -15,13 +15,13 @@ module Ecstatic
       script.watch('site/assets/stylesheets/.*') { puts 'Compiling scss'; system('compass compile') }
 
       # coffeescript
-      script.watch('site/scripts/(.*)\.coffee') do |m|
+      script.watch('site/assets/scripts/(.*)\.coffee') do |m|
         puts "Compiling CoffeeScript file: #{m[0]}"
-        system("coffee -o gh-pages/javascripts -c site/scripts/#{m[1]}.coffee")
+        system("coffee -o gh-pages/javascripts -c #{m[0]}")
       end
 
       # javascript
-      script.watch('site/scripts/(.*)\.js') do |m|
+      script.watch('site/assets/scripts/(.*)\.js') do |m|
         puts "Copying changed JavaScript: #{m[0]}"
         system("cp #{m[0]} gh-pages/javascripts/#{m[1]}.js")
       end

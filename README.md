@@ -1,6 +1,6 @@
 # Ecstatic
 
-Ecstatic is a static site generator focused on simplicity. It uses just enough of the right tools, leaving as much power in your hands while still providing plenty of value. Ecstatic is opinionated in favor of [HAML](http://haml.info/), [SASS](http://sass-lang.com/), and (someday) [CoffeeScript](http://coffeescript.org/).
+Ecstatic is a static site generator focused on simplicity. It uses just enough of the right tools, leaving as much power in your hands while still providing plenty of value. Ecstatic is opinionated in favor of [HAML](http://haml.info/), [SASS](http://sass-lang.com/), and [CoffeeScript](http://coffeescript.org/).
 
 Ecstatic provides a straight-forward directory structure for your site<!-- and concatenates scripts and stylesheets-->. It also provides a mechanism to push either the `master` or `gh-pages` branch to GitHub.
 
@@ -42,17 +42,15 @@ After installation and initialization, you should have the following directory t
 ├── config.rb
 ├── gh-pages
 └── site
-    ├── assets
-    │   ├── images
-    │   ├── javascripts
-    │   └── stylesheets
-    └── pages
-        └── index.haml
+    ├── assets
+    ├── pages
+    ├── scripts
+    └── stylesheets
 ```
 
 When writing your website, you will focus almost exclusively on the `site` directory. While you're working on your site, you'll want to run `ecstatic server` and view its contents at [localhost:4567](http://localhost:4567).
 
-Ecstatic will automatically compile HAML files in `site/pages/` and SCSS files in `site/assets/stylesheets`. If you need need something like CoffeeScript compilation, then it should be fairly simple to add to `lib/ecstatic/watcher.rb`. Pull requests welcome!
+Ecstatic will automatically compile HAML files in `site/pages/` and SCSS files in `site/assets/stylesheets`. CoffeeScript and JavaScript files live in `site/assets/scripts` -- CoffeeScript will get compiled, while JavaScript files are merely copied into place.
 
 ## Deploying to GitHub Pages
 
