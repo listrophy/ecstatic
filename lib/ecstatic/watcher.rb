@@ -20,6 +20,12 @@ module Ecstatic
         system("coffee -o gh-pages/javascripts -c site/scripts/#{m[1]}.coffee")
       end
 
+      # javascript
+      script.watch('site/scripts/(.*)\.js') do |m|
+        puts "Copying changed JavaScript: #{m[0]}"
+        system("cp #{m[0]} gh-pages/javascripts/#{m[1]}.js")
+      end
+
       handler = Watchr.handler.new
 
       controller = Watchr::Controller.new(script,handler)
