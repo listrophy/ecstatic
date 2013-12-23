@@ -2,7 +2,7 @@
 
 Ecstatic is a static site generator focused on simplicity. It uses just enough of the right tools, leaving as much power in your hands while still providing plenty of value. Ecstatic is opinionated in favor of [HAML](http://haml.info/), [SASS](http://sass-lang.com/), and [CoffeeScript](http://coffeescript.org/).
 
-Ecstatic provides a straight-forward directory structure for your site<!-- and concatenates scripts and stylesheets-->. It also provides a mechanism to push either the `master` or `gh-pages` branch to GitHub.
+Ecstatic provides a straight-forward directory structure for your site. It also provides a mechanism to push either the `master` or `gh-pages` branch to GitHub.
 
 Ecstatic does **not** provide an automatic mechanism for blogging. If you want to use Ecstatic for blogging, you will have to curate your own site structure. Not ideal, but it's not a core feature. Perhaps someone will write a plugin that provides automatic blogging functionality (hint, hint).
 
